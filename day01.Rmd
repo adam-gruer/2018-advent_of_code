@@ -1,0 +1,37 @@
+---
+title: "day_01"
+author: "A Gruer"
+date: "4 December 2018"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+```{r}
+ input <- read_lines("day01_data.txt") %>% as.numeric()
+   
+```
+
+Frequency
+```{r}
+sum(input)
+```
+
+Duplicated feqrency
+
+```{r}
+acc <- numeric()
+while(TRUE){
+ acc <-   c(acc,input)
+ c <-  cumsum(acc)  
+ dup <- anyDuplicated(c) 
+ if(dup) break
+}
+
+c[dup]
+
+```
+
